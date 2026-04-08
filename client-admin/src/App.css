@@ -1,0 +1,318 @@
+/* ==========================================================================
+   TỔNG HỢP CSS - SHOP ONLINE 2026
+   Thiết kế bởi: Huỳnh Minh Trí
+   ========================================================================== */
+
+/* --- 1. BIẾN MÀU SẮC (ROOT VARIABLES) --- */
+:root {
+  --primary-color: #0d6efd;   /* Xanh dương chủ đạo */
+  --secondary-color: #ff9800; /* Cam nhấn mạnh */
+  --bg-color: #f4f6f9;        /* Xám nhạt nền web */
+  --text-dark: #222;
+  --text-muted: #777;
+  --white: #ffffff;
+}
+
+/* --- 2. CÀI ĐẶT CHUNG (GLOBAL RESET) --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* --- 3. TIỆN ÍCH LAYOUT (LAYOUT UTILITIES) --- */
+/* Lớp quan trọng nhất để giữ nội dung luôn nằm giữa màn hình 1250px */
+.container {
+  max-width: 1250px; 
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.body-admin, .body-customer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- 4. THANH ĐIỀU HƯỚNG (HEADER / NAVBAR) --- */
+.navbar {
+  width: 100%;
+  background: var(--primary-color);
+  color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Căn 3 phần: Logo (Trái) - Menu (Giữa) - Info (Phải) */
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 15px;
+}
+
+.logo a {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav-links { 
+  display: flex; 
+  gap: 25px; 
+  list-style: none; 
+}
+
+.nav-item { 
+  color: white; 
+  text-decoration: none; 
+  font-weight: 500; 
+  text-transform: uppercase; 
+  transition: 0.3s; 
+}
+
+.nav-item:hover { color: #ffd43b; }
+
+/* --- 5. KHỐI NỘI DUNG TRẮNG (CARD SECTION) --- */
+/* Dùng cho các khung bọc bảng hoặc bọc nội dung trang chủ */
+.admin-content-section {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  overflow-x: auto; /* Chống tràn khi bảng quá dài */
+}
+
+.admin-title {
+  text-align: center;
+  margin: 30px 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #333;
+  font-size: 24px;
+}
+
+/* --- 6. BẢNG DỮ LIỆU (DATA TABLES) --- */
+.datatable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1000px; /* Đảm bảo không bị bóp nghẹt chữ */
+}
+
+.datatable th { 
+  background: #f8f9fa; 
+  padding: 15px 10px; 
+  border-bottom: 2px solid #dee2e6; 
+  color: #333;
+  text-align: center;
+}
+
+.datatable td { 
+  padding: 12px 10px; 
+  border-bottom: 1px solid #eee; 
+  text-align: center; 
+  vertical-align: middle;
+}
+
+.datatable tr:hover { background: #f9f9f9; cursor: pointer; }
+
+/* --- 7. FORM CHI TIẾT (CATEGORY & PRODUCT DETAILS) --- */
+.category-detail-form, .product-detail-form {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  margin: 40px auto;
+}
+
+.category-detail-form { max-width: 500px; }
+.product-detail-form { max-width: 850px; }
+
+.admin-form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.admin-form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.admin-form-group input, .admin-form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* --- 8. NÚT BẤM (BUTTONS) --- */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-category {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-add { background: #28a745; color: white; }
+.btn-update { background: #007bff; color: white; }
+.btn-delete { background: #dc3545; color: white; }
+.btn-category:hover { opacity: 0.8; transform: translateY(-2px); }
+
+/* --- 9. TRẠNG THÁI & HÀNH ĐỘNG (STATUS & ACTIONS) --- */
+.status-approved, .status-active { color: #28a745; font-weight: bold; }
+.status-canceled, .status-deactive { color: #dc3545; font-weight: bold; }
+.status-pending { color: #ff9800; font-weight: bold; }
+
+.order-action, .email-action {
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.order-action:hover { text-decoration: underline; color: var(--secondary-color); }
+
+/* --- 10. TRANG CHỦ ADMIN & PREVIEW ẢNH --- */
+.admin-home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.admin-home-img {
+  width: 800px;
+  max-width: 95%;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.img-preview-admin {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.img-preview-admin img {
+  max-width: 250px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+/* --- 11. PHÂN TRANG (PAGINATION) --- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.pagination span {
+  cursor: pointer;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: white;
+  transition: 0.3s;
+}
+
+.pagination span:hover { background: var(--primary-color); color: white; }
+
+/* --- 12. CHÂN TRANG (FOOTER) --- */
+.footer {
+  background: #222;
+  color: white;
+  margin-top: auto;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 15px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+  color: #777;
+  border-top: 1px solid #333;
+}
+
+/* --- Sửa lại phần 13 trong App.css --- */
+/* Lớp bao phủ toàn màn hình */
+.admin-login-body {
+  display: flex;
+  justify-content: center; /* Căn giữa ngang */
+  align-items: center;     /* Căn giữa dọc */
+  min-height: 100vh;       /* 🔥 Bắt buộc có dòng này để căn giữa theo chiều cao màn hình */
+  width: 100%;
+  background-color: #f4f6f9; /* Màu nền xám nhẹ cho chuyên nghiệp */
+  margin: 0;
+}
+
+/* Khung card đăng nhập */
+.admin-login-card {
+  background: white;
+  padding: 40px;
+  width: 100%;
+  max-width: 400px; /* Độ rộng vừa phải cho form */
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Đổ bóng cho nổi khối */
+  text-align: center;
+}
+
+/* Tùy chỉnh thêm cho các input nếu cần */
+.admin-form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.admin-form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.btn-admin-login {
+  width: 100%;
+  padding: 12px;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
